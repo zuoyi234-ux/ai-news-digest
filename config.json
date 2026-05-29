@@ -1,0 +1,24 @@
+{
+  "topics": [
+    { "name": "科技", "keywords": ["AI", "artificial intelligence", "tech", "startup", "software", "Apple", "Google", "Microsoft", "OpenAI"] },
+    { "name": "财经", "keywords": ["economy", "market", "stock", "finance", "inflation", "Fed", "trade", "GDP"] },
+    { "name": "国际", "keywords": ["geopolitics", "war", "election", "diplomacy", "United Nations", "NATO", "China", "US"] },
+    { "name": "科学", "keywords": ["science", "research", "climate", "space", "health", "medicine", "biology"] }
+  ],
+  "rssFeeds": [
+    { "name": "Hacker News", "url": "https://news.ycombinator.com/rss", "category": "科技" },
+    { "name": "Reuters Top News", "url": "https://feeds.reuters.com/reuters/topNews", "category": "国际" },
+    { "name": "BBC News", "url": "http://feeds.bbci.co.uk/news/rss.xml", "category": "国际" },
+    { "name": "TechCrunch", "url": "https://techcrunch.com/feed/", "category": "科技" },
+    { "name": "The Verge", "url": "https://www.theverge.com/rss/index.xml", "category": "科技" },
+    { "name": "Financial Times", "url": "https://www.ft.com/rss/home", "category": "财经" }
+  ],
+  "recipients": [
+    "zuoyi234@gmail.com"
+  ],
+  "digest": {
+    "language": "中文",
+    "maxItemsPerTopic": 3,
+    "summaryStyle": "简洁，适合早晨快读，每条控制在 2 句以内"
+  }
+}
