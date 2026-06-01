@@ -15,14 +15,19 @@ const parser = new Parser({
   headers: { "User-Agent": "ai-news-digest/1.0" },
 });
 
+// TZ_OFFSET_HOURS: adjust for your local timezone (e.g. 8 for Asia/Shanghai)
+const TZ_OFFSET_HOURS = 8;
+
+function toLocalDateStr(date: Date): string {
+  const local = new Date(date.getTime() + TZ_OFFSET_HOURS * 3600 * 1000);
+  return local.toISOString().slice(0, 10); // "YYYY-MM-DD"
+}
+
 function isYesterday(date: Date): boolean {
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  return (
-    date.getFullYear() === yesterday.getFullYear() &&
-    date.getMonth() === yesterday.getMonth() &&
-    date.getDate() === yesterday.getDate()
-  );
+  const now = new Date(Date.now() + TZ_OFFSET_HOURS * 3600 * 1000);
+  const yesterday = new Date(now);
+  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+  return toLocalDateStr(date) === yesterday.toISOString().slice(0, 10);
 }
 
 function matchesTopics(text: string): string {

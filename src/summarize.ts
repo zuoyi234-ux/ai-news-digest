@@ -57,9 +57,10 @@ ${sections.join("\n\n")}`;
 
   const parsed: { topic: string; items: { title: string; summary: string }[] }[] = JSON.parse(jsonMatch[0]);
 
-  // Merge back link and source from original data
-  return parsed.map(({ topic, items }) => {
-    const origItems = grouped.get(topic) ?? [];
+  // Merge back link and source by position — avoids topic name mismatch if Claude rewrites them
+  const origTopics = [...grouped.entries()];
+  return parsed.map(({ topic, items }, topicIdx) => {
+    const origItems = origTopics[topicIdx]?.[1] ?? [];
     return {
       topic,
       items: items.map((item, i) => ({
